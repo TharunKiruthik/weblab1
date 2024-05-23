@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#recent-projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Tharun Kiruthik K S, a UI/UX Designer.</p>
+        </section>
+        <section class="introduction card">
+            <h2>About Me</h2>
+            <p>I am a passionate developer with experience in creating dynamic and responsive web applications. My goal is to deliver high-quality and efficient code for the best user experience.</p>
+        </section>
+        <section class="skills card">
+            <h2>My Skills</h2>
+            <ul>
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript & jQuery</li>
+                <li>React & Angular</li>
+                <li>Node.js & Express</li>
+                <li>Python & Django</li>
+                <li>SQL & NoSQL Databases</li>
+            </ul>
+        </section>
+        <section id="recent-projects" class="recent-projects card">
+            <h2>Recent Projects</h2>
+            <div class="project">
+                <h3>Project One</h3>
+                <p>A web application for managing tasks with a user-friendly interface.</p>
+            </div>
+            <div class="project">
+                <h3>Project Two</h3>
+                <p>An e-commerce platform with secure payment integration and real-time analytics.</p>
+            </div>
+            <div class="project">
+                <h3>Project Three</h3>
+                <p>A social media app with real-time chat functionality and a notification system.</p>
+            </div>
+        </section>
+        <section id="testimonials" class="testimonials card">
+            <h2>Testimonials</h2>
+            <div class="testimonial">
+                <p>"Tharun is an exceptional developer who always delivers top-notch work. Highly recommended!" - Client A</p>
+            </div>
+            <div class="testimonial">
+                <p>"Working with Tharun has been a pleasure. His attention to detail is remarkable." - Client B</p>
+            </div>
+            <div class="testimonial">
+                <p>"Tharun's skills in UI/UX design are outstanding. He brings creative solutions to every project." - Client C</p>
+            </div>
+        </section>
+        <section class="contact card">
+            <h2>Contact Me</h2>
+            <p>If you'd like to discuss a project or just want to say hello, feel free to contact me!</p>
+            <ul>
+                <li>Email: tharunkiruthik018@gmail.com</li>
+                <li>Phone: (+91) 8667074749</li>
+                <li>LinkedIn: <a href="https://linkedin.com/in/tharun" target="_blank">Tharun Kiruthik</a></li>
+            </ul>
+        </section>
+    </main>
+    
+</body>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
+    background: url("https://static.vecteezy.com/system/resources/previews/020/933/072/non_2x/abstract-blur-gradient-background-vector.jpg");
+    color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 3em;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.card {
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skills ul li {
+    background: #f4f4f4;
+    color: #080808;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.recent-projects .project {
+    margin: 10px 0;
+    padding: 10px;
+    border-left: 4px solid #0073e6;
+    background: #f4f4f4;
+}
+
+.testimonials .testimonial {
+    background: #f4f4f4;
+    margin: 10px 0;
+    padding: 10px;
+    border-left: 4px solid #0073e6;
+}
+
+.contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact ul li {
+    margin: 5px 0;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+</style>
+</html>

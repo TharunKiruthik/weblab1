@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dash.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ user.username }}!</h1>
+        <div class="info">
+            <p>Account number: 817023864 {{ user.account_number }}</p>
+            <p>Balance: ₹10054 {{ user.balance }}</p>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <h2>Deposit</h2>
+                <form>
+                    <input type="number" name="amount" placeholder="Enter amount" required> <button type="submit">Deposit</button> </form>
+            </div>
+            <div class="card">
+                <h2>Withdraw</h2>
+                <form>
+                    <input type="number" name="amount" placeholder="Enter amount" required> <button type="submit">Withdraw</button> </form>
+            </div>
+            <div class="card">
+                <h2>Transaction History</h2>
+                <a href="#">View Transactions (disabled)</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

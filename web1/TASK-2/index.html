@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Rock Paper Scissors</h1>
+        <div class="choices">
+            <button class="choice" data-choice="rock">Rock</button>
+            <button class="choice" data-choice="paper">Paper</button>
+            <button class="choice" data-choice="scissors">Scissors</button>
+        </div>
+        <div class="results">
+            <div id="player1" class="player">Player 1: <span class="player-choice"></span></div>
+            <div id="player2" class="player">Player 2: <span class="player-choice"></span></div>
+            <div id="winner" class="winner">Winner: <span class="winner-name"></span></div>
+        </div>
+        <button id="reset" class="reset">Play Again</button>
+    </div>
+</body>
+<style>
+    body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ffafbd, #ffc3a0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #333;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.choice {
+    padding: 15px 30px;
+    margin: 0 15px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.2s, background-color 0.2s;
+    background-color: #f67280;
+    color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.choice:hover {
+    transform: scale(1.1);
+    background-color: #c06c84;
+}
+
+.results {
+    margin-bottom: 30px;
+}
+
+.player, .winner {
+    margin: 20px 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.reset {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    background-color: #355c7d;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.reset:hover {
+    background-color: #2a4365;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const choices = document.querySelectorAll('.choice');
+    const player1Choice = document.querySelector('#player1 .player-choice');
+    const player2Choice = document.querySelector('#player2 .player-choice');
+    const winnerName = document.querySelector('#winner .winner-name');
+    const resetButton = document.getElementById('reset');
+
+    let player1Selection = '';
+    let player2Selection = '';
+
+    choices.forEach(choice => {
+        choice.addEventListener('click', function() {
+            if (!player1Selection) {
+                player1Selection = this.getAttribute('data-choice');
+                player1Choice.textContent = player1Selection;
+                animateSelection('#player1');
+            } else if (!player2Selection) {
+                player2Selection = this.getAttribute('data-choice');
+                player2Choice.textContent = player2Selection;
+                animateSelection('#player2');
+                determineWinner();
+            }
+        });
+    });
+
+    resetButton.addEventListener('click', resetGame);
+
+    function determineWinner() {
+        if (player1Selection === player2Selection) {
+            winnerName.textContent = 'It\'s a Tie!';
+        } else if (
+            (player1Selection === 'rock' && player2Selection === 'scissors') ||
+            (player1Selection === 'paper' && player2Selection === 'rock') ||
+            (player1Selection === 'scissors' && player2Selection === 'paper')
+        ) {
+            winnerName.textContent = 'Player 1 Wins!';
+            animateWinner('#player1');
+        } else {
+            winnerName.textContent = 'Player 2 Wins!';
+            animateWinner('#player2');
+        }
+    }
+
+    function resetGame() {
+        player1Selection = '';
+        player2Selection = '';
+        player1Choice.textContent = '';
+        player2Choice.textContent = '';
+        winnerName.textContent = '';
+    }
+
+    function animateSelection(player) {
+        const playerElement = document.querySelector(player);
+        playerElement.style.animation = 'pop 0.5s ease-in-out';
+        setTimeout(() => {
+            playerElement.style.animation = '';
+        }, 500);
+    }
+
+    function animateWinner(player) {
+        const playerElement = document.querySelector(player);
+        playerElement.style.animation = 'fadeIn 0.5s ease-in-out';
+        playerElement.style.backgroundColor = 'lightgreen';
+        setTimeout(() => {
+            playerElement.style.backgroundColor = 'transparent';
+            playerElement.style.animation = '';
+        }, 500);
+    }
+});
+
+</script>
+</html>
